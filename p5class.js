@@ -11,7 +11,6 @@ class P5 extends p5 {
             p.pixelDensity(1)
             p.setup = () => { cnvs = p.createCanvas(width, height, p[mode]) }
             p.draw = () => { }
-            console.log('p5 initiated!')
         })
         this.width = width
         this.height = height
@@ -23,7 +22,6 @@ class P5 extends p5 {
         // this.canvas.style.left = "0px"
         // this.canvas.style.zIndex = -1
         // document.body.appendChild(this.canvas)
-        console.log('a canvas appended')
         console.log('p5', this)
     }
 
