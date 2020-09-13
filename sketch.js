@@ -2,21 +2,21 @@ const core = () => {
 
   // create a new hydra-synth instance. makeGlobal is set to false,
   // so that commands can be directed to a specific canvas.
-  const h0 = new Hydra({
-    canvas: document.getElementById("myCanvas0"),
-    makeGlobal: true
-  }).synth;
+  // const h0 = new Hydra({
+  //   canvas: document.getElementById("myCanvas0"),
+  //   makeGlobal: true
+  // }).synth;
 
-  h0.s0.initCam()
-  h0.src(h0.s0).out(h0.o0) // src(s0).out() is the same as saying src(s0).out(o0)
+  // h0.s0.initCam()
+  // h0.src(h0.s0).out(h0.o0) // src(s0).out() is the same as saying src(s0).out(o0)
 
-  // to render an oscillator to output buffer o1:
-  h0.osc(20, 0.1, 0.6).out(h0.o1)
-  h0.src(h0.o0)
-    .diff(h0.o1)
-    .kaleid(7)
-    .out(h0.o2)
-  h0.render(h0.o2) // show all four outputs o0, o1, o2, o3
+  // // to render an oscillator to output buffer o1:
+  // h0.osc(20, 0.1, 0.6).out(h0.o1)
+  // h0.src(h0.o0)
+  //   .diff(h0.o1)
+  //   .kaleid(7)
+  //   .out(h0.o2)
+  // h0.render(h0.o2) // show all four outputs o0, o1, o2, o3
 
 
   // h1.s0.init({ src: p1.canvas })
@@ -59,7 +59,7 @@ const core = () => {
   // create a second hydra-synth instance
   var h1 = new Hydra({
     canvas: document.getElementById("myCanvas1"),
-    makeGlobal: false
+    makeGlobal: true
   }).synth;
 
   const p1 = new P5({ width: 400, height: 400 })
@@ -87,7 +87,7 @@ const core = () => {
 
   h1
     .src(h1.s0)
-    // .diff(h1.o1)
+    .diff(h1.o1) // ONLY WORKS WITH GLOBAL MODE
     .kaleid(7)
     .scrollY(-0.1)
     .scrollX(0.125)
